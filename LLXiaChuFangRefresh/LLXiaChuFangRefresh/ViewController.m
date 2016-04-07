@@ -32,7 +32,7 @@ static int const tableViewRowOfNumber= 6;
 
     _refreshView = ({
         CGFloat refreshViewHeight = 40;
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(_tableView.frame), screenWidth, refreshViewHeight)];
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(_tableView.frame)-refreshViewHeight, screenWidth, refreshViewHeight)];
         view.backgroundColor = [UIColor brownColor];
         
         [self.view addSubview:view];
@@ -41,8 +41,33 @@ static int const tableViewRowOfNumber= 6;
     });
     
 }
+#pragma mark UISCrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    // 获取_scrollView的contentSize
+//    contentHeight=scrollView.contentSize.height;
+    
+    // 判断是否在拖动_scrollView
+    if (scrollView.dragging) {
+        NSLog(@"scrollView:%@",NSStringFromCGPoint(scrollView.contentOffset));
+        
+        CGRect rect = _refreshView.frame;
+        rect.origin.y = _refreshView.frame.origin.y - scrollView.contentOffset.y;
+        _refreshView.frame = rect;
+    
+    }
+    
+    
+//    [self.view setNeedsLayout];
+}
 
-
+#pragma mark - 刷新当前界面布局
+-(void)viewWillLayoutSubviews{
+    
+ NSLog(@"%s",__FUNCTION__);
+    
+    
+}
 
 #pragma mark UItableViewDelegate && UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
