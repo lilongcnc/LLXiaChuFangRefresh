@@ -7,12 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "LxDBAnything.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     CGFloat screenWidth;
+    CGFloat originRefreshY;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) UIView *refreshView;
+
+
 @end
 
 @implementation ViewController
@@ -40,6 +44,10 @@ static int const tableViewRowOfNumber= 6;
     
     });
     
+    
+    
+    originRefreshY = _refreshView.frame.origin.y;
+    
 }
 #pragma mark UISCrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -48,14 +56,16 @@ static int const tableViewRowOfNumber= 6;
 //    contentHeight=scrollView.contentSize.height;
     
     // 判断是否在拖动_scrollView
-    if (scrollView.dragging) {
+//    if (scrollView.dragging) {
         NSLog(@"scrollView:%@",NSStringFromCGPoint(scrollView.contentOffset));
         
         CGRect rect = _refreshView.frame;
-        rect.origin.y = _refreshView.frame.origin.y - scrollView.contentOffset.y;
+        rect.origin.y = originRefreshY - scrollView.contentOffset.y;
         _refreshView.frame = rect;
     
-    }
+//    }else{
+//        
+//    }
     
     
 //    [self.view setNeedsLayout];
