@@ -35,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		89FED3C31CB743F4009C8F4C /* LxDBAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxDBAnything.h; sourceTree = "<group>"; };
 		8BAA558C1CB69E530062DF3F /* LLXiaChuFangRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLXiaChuFangRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BAA55901CB69E530062DF3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BAA55921CB69E530062DF3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -102,7 +101,6 @@
 		8BAA558E1CB69E530062DF3F /* LLXiaChuFangRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				89FED3C31CB743F4009C8F4C /* LxDBAnything.h */,
 				8BAA55921CB69E530062DF3F /* AppDelegate.h */,
 				8BAA55931CB69E530062DF3F /* AppDelegate.m */,
 				8BAA55951CB69E530062DF3F /* ViewController.h */,
